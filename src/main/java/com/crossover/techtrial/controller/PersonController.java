@@ -56,5 +56,9 @@ public class PersonController {
 	private <T> boolean isSafe(Collection<T> list) {
 		return !(list == null || list.isEmpty());
 	}
+	
+	private <T> Collection<T> safe(Collection<T> list) {
+        return Optional.ofNullable(list).orElseGet(Collections::emptyList);
+    	}
 
 }
